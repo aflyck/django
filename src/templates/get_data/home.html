@@ -25,8 +25,12 @@
 
 <body>
   <!-- your content here... -->
-  <h2>Hello {{ name }}</h2>
-  <p> Date - {{ data }} </p>
+  <h2>Hello!!!</h2>
+  {% for object in object_list %}
+    <p>{{object}} </p>
+  {% endfor %}
+  <h3>My content here</h3>
+  <p>{{object_list}}</p>
   <script src="js/scripts.js"></script>
 </body>
 </html>

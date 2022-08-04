@@ -15,4 +15,6 @@ class AdminProgramLanguage(admin.ModelAdmin):
 
 @admin.register(Vacancy)
 class AdminVacancy(admin.ModelAdmin):
+    list_display = ['title', 'company', 'program_language', 'description', 'city', 'url']
+    search_fields = ['company', 'city', 'program_language']
     prepopulated_fields = {'slug': ['title']}
