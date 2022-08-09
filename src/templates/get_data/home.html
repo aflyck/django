@@ -3,8 +3,30 @@
 {%block title%}Home{%endblock%}
 
 {%block content%}
-  {% for object in object_list %}
-    <a href="{{object.url}}"><p>{{object}} </p></a>
-    <p>{{object.description}}</p>
-  {% endfor %}
+    {% for object in object_list %}
+        <div class="card my-3">
+            <div class="card-header">
+                <h5><a href="{{object.url}}">{{object.title}}</a></h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{{object.description}}</p>
+                <p>{{object.city.name}} | {{object.program_language.name}} | {{object.timestamp|date:"d/m/y"}}</p>
+            </div>
+        </div>
+    {% empty %}
+        <h2 style="text-align:center;">К сожалению по вашему запросу, ничего не найдено</h2>
+    {% endfor %}
+    <dev class="row">
+        <dev class="col-md-6 mx-auto">
+            <form method="GET" action="">
+                <div class="form-group">
+                    {{ form.as_p}}
+                </div>
+                <div class="col-mb-3 mx-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Найти</button>
+                </div>
+            </form>
+        </dev>
+    </dev>
+
 {%endblock%}
